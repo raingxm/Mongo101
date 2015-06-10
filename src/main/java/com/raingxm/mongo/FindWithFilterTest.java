@@ -4,11 +4,16 @@ import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Filter;
+
+import static com.mongodb.client.model.Filters.*;
 
 public class FindWithFilterTest {
     public static void main(String[] args) {
@@ -22,7 +27,9 @@ public class FindWithFilterTest {
                     new Random().nextInt(100)).append("i", i));
         }
 
-        List<Document> all = coll.find().into(new ArrayList<Document>());
+        Bson filter = eq("x", 0);
+
+        List<Document> all = coll.find(filter).into(new ArrayList<Document>());
         printJson(all);
     }
 
