@@ -5,6 +5,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Projections;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -28,8 +29,9 @@ public class FindWithFilterTest {
         }
 
         Bson filter = eq("x", 0);
+        Bson projection = Projections.exclude("x");
 
-        List<Document> all = coll.find(filter).into(new ArrayList<Document>());
+        List<Document> all = coll.find(filter).projection(projection).into(new ArrayList<Document>());
         printJson(all);
     }
 
