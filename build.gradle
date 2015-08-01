@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'application'
 
 repositories {
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
@@ -12,6 +13,12 @@ dependencies {
     compile 'kr.pe.kwonnam.freemarker:freemarker-template-inheritance:0.4.RELEASE'
     compile 'org.mongodb:mongo-java-driver:3.1.0-SNAPSHOT'
     testCompile 'junit:junit:4.11'
+}
+
+run {
+    main = "com.raingxm.blog.BlogController"
+    jvmArgs = ["-Xms1024m", "-Xmx1024m"]
+    systemProperty "jetty.port", "8082"
 }
 
 task wrapper(type: Wrapper) {
