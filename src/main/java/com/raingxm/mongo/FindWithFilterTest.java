@@ -1,10 +1,8 @@
 package com.raingxm.mongo;
 
-import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Projections;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -12,7 +10,6 @@ import org.bson.conversions.Bson;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Filter;
 
 import static com.mongodb.client.model.Filters.*;
 
